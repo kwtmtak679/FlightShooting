@@ -28,27 +28,27 @@ public class PlayerController : MonoBehaviour
         //進む
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0.0f, 0, 0.05f);
+            transform.Translate(0.0f, 0, 0.15f);
         }
         //左に曲がる
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0, -0.3f, 0);
+            transform.Rotate(0, -0.5f, 0);
         }
         //右に曲がる
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0, 0.3f, 0);
+            transform.Rotate(0, 0.5f, 0);
         }
         //上に行く
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.Translate(0, 0.03f, 0);
+            transform.Translate(0, 0.1f, 0);
         }
         //下に行く
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Translate(0, -0.03f, 0);
+            transform.Translate(0, -0.1f, 0);
         }
     }
 }
