@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //ƒvƒŒƒCƒ„[‚ª‰½‚©‚ÉÕ“Ë‚µ‚½‚Æ‚«
+    private void OnCollisionEnter(Collision player)
+    {
+        //’¬‚ÌŒš‘¢•¨‚É“–‚½‚Á‚½‚ç
+        if(player.gameObject.tag=="Mati")
+        {
+            //ƒwƒŠ‚ğÁ‚·
+            Destroy(this.gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
