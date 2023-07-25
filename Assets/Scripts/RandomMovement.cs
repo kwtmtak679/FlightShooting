@@ -5,7 +5,7 @@ public class RandomMovement : MonoBehaviour
 {
     private float chargeTime = 3.0f;
     private float timeCount;
-    private float speed = 0.05f;
+    private float speed = 0.1f;
     void Update()
     {
         timeCount += Time.deltaTime;
