@@ -20,7 +20,7 @@ public class Aim : MonoBehaviour
         {
             string hitName = hit.transform.gameObject.tag;
 
-            if (hitName == "Enemy")
+            if (hitName == "Enemy2")
             {
                 // 照準器の色を「赤」に変える（色は自由に変更してください。）
                 aimImage.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
