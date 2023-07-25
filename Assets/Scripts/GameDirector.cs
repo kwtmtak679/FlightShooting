@@ -39,7 +39,7 @@ public class GameDirector : MonoBehaviour
             this.kill.ToString() + "kill";
 
         //“|‚µ‚½”‚ªƒNƒŠƒA–Ú•W‚É‚È‚Á‚½‚ç
-        if(kill==2)
+        if(kill==10)
         {
             finish.SetActive(true);
 

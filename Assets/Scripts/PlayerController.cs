@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision player)
     {
         //’¬‚ÌŒš‘¢•¨‚É“–‚½‚Á‚½‚ç
-        if(player.gameObject.tag=="Mati")
+        if(player.gameObject.tag=="Mati" || player.gameObject.tag=="Enemy2")
         {
             //ƒwƒŠ‚ğÁ‚·
             Destroy(this.gameObject);
