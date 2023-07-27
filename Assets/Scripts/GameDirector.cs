@@ -12,7 +12,7 @@ public class GameDirector : MonoBehaviour
 
     //ポイントを入れるテキスト
     GameObject killmater;
-    //ポイントを入れる変数
+    //倒した数を入れる変数
     int kill = 0;
 
     public void Gekitui()
@@ -39,7 +39,7 @@ public class GameDirector : MonoBehaviour
             this.kill.ToString() + "kill";
 
         //倒した数がクリア目標になったら
-        if(kill==5)
+        if(kill==8)
         {
             finish.SetActive(true);
 
