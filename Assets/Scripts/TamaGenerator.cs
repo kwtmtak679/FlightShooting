@@ -4,7 +4,7 @@ using UnityEngine;
 public class TamaGenerator : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("弾の発射場所")]
+    [Tooltip("Tamanohassyabasyo")]
     private GameObject firingPoint;
     [SerializeField]
     [Tooltip("弾")]
@@ -15,7 +15,7 @@ public class TamaGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // スペースキーが押されたかを判定
+        // 左クリックしたかを判定
         if (Input.GetMouseButtonDown(0))
         {
             // 弾を発射する

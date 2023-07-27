@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         //êiÇﬁ
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0.0f, 0, 0.15f);
+            transform.Translate(0.0f, 0, 0.5f);
         }
         //ç∂Ç…ã»Ç™ÇÈ
         if (Input.GetKey(KeyCode.A))
@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             transform.Translate(0, -0.1f, 0);
+        }
+        //ñﬂÇÈ
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(0.0f, 0, -0.3f);
         }
     }
 }
