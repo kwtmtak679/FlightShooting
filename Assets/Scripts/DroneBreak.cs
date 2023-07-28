@@ -29,8 +29,7 @@ public class DroneBreak : MonoBehaviour
             GetComponent<ParticleSystem>().Play();
 
 
-            //当たった球とドローンを消す
-            Destroy(atatta.gameObject);
+            //ドローンを消す
             Invoke("Hakai", 1.0f);
 
         }

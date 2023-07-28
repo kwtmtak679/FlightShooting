@@ -45,5 +45,7 @@ public class GameDirector : MonoBehaviour
 
             Invoke("Clear", 3.0f);
         }
+            
+        
     }
 }
