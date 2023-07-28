@@ -13,6 +13,13 @@ public class TamaGenerator : MonoBehaviour
     [Tooltip("弾の速さ")]
     private float speed = 30f;
     // Update is called once per frame
+    public AudioClip fireSE;
+    AudioSource aud;
+
+    void Start()
+    {
+        this.aud = GetComponent<AudioSource>();
+    }
     void Update()
     {
         // 左クリックしたかを判定
@@ -37,6 +44,7 @@ public class TamaGenerator : MonoBehaviour
         newBall.GetComponent<Rigidbody>().AddForce(direction * speed, ForceMode.Impulse);
         // 出現させたボールの名前を"bullet"に変更
         newBall.name = bullet.name;
+        this.aud.PlayOneShot(fireSE);
         // 出現させたボールを1.5秒後に消す
         Destroy(newBall, 1.5f);
     }

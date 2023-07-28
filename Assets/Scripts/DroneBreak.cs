@@ -8,6 +8,8 @@ public class DroneBreak : MonoBehaviour
 {
     //ゲームディレクターの値を入れる
     GameObject director;
+    public AudioClip explosion;
+    AudioSource aud;
 
     public void Hakai()
     {
@@ -27,7 +29,7 @@ public class DroneBreak : MonoBehaviour
         {
             //パーティクルを表示
             GetComponent<ParticleSystem>().Play();
-
+            this.aud.PlayOneShot(explosion);
 
             //ドローンを消す
             Invoke("Hakai", 1.0f);
@@ -40,6 +42,7 @@ public class DroneBreak : MonoBehaviour
     {
         //ゲームディレクターを探して値をとる
         this.director = GameObject.Find("GameDirector");
+        this.aud = GetComponent<AudioSource>();
     }
 
     void Update()
