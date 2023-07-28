@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 //UIなどを管理するスクリプト
 public class GameDirector : MonoBehaviour
@@ -12,15 +13,22 @@ public class GameDirector : MonoBehaviour
 
     //ポイントを入れるテキスト
     GameObject killmater;
+
+    //タイマーを入れるテキスト
+    GameObject timer;
+
     //倒した数を入れる変数
     int kill = 0;
 
+    //時間を測る変数
+    float time = 0;
     public void Gekitui()
     {
         //kill変数をプラス1
         ++this.kill;
     }
 
+    //クリアシーンに移動
     public void Clear()
     {
         SceneManager.LoadScene("ClearScene");
@@ -30,22 +38,32 @@ public class GameDirector : MonoBehaviour
     {
         //テキストを探す
         this.killmater = GameObject.Find("Kill");
+        this.timer = GameObject.Find("Timer");
     }
 
     void Update()
     {
-        //テキストに表示するテキストを定義
+        //倒した数がクリア目標になったら
+        if (kill == 8)
+        {
+            //テキストを表示
+            finish.SetActive(true);
+
+            //３秒後に関数を呼び出す
+            Invoke("Clear", 3.0f);
+        }
+        else
+        {
+            //時間を増やす
+            this.time += Time.deltaTime;
+        }
+
+        //倒した数をテキストに表示
         this.killmater.GetComponent<TextMeshProUGUI>().text =
             this.kill.ToString() + "kill";
 
-        //倒した数がクリア目標になったら
-        if(kill==8)
-        {
-            finish.SetActive(true);
-
-            Invoke("Clear", 3.0f);
-        }
-            
-        
+        //時間をテキストに表示
+        this.timer.GetComponent<TextMeshProUGUI>().text =
+            "Time:" + this.time.ToString("F2");
     }
 }
