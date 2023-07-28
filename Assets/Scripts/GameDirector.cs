@@ -21,7 +21,7 @@ public class GameDirector : MonoBehaviour
     int kill = 0;
 
     //時間を測る変数
-    float time = 0;
+    public static float time = 0;
     public void Gekitui()
     {
         //kill変数をプラス1
@@ -58,7 +58,7 @@ public class GameDirector : MonoBehaviour
         else
         {
             //時間を増やす
-            this.time += Time.deltaTime;
+            time += Time.deltaTime;
         }
 
         //倒した数をテキストに表示
@@ -67,6 +67,6 @@ public class GameDirector : MonoBehaviour
 
         //時間をテキストに表示
         this.timer.GetComponent<TextMeshProUGUI>().text =
-            "Time:" + this.time.ToString("F2");
+            "Time:" + time.ToString("F2");
     }
 }
