@@ -46,6 +46,9 @@ public class GameDirector : MonoBehaviour
         //倒した数がクリア目標になったら
         if (kill == 8)
         {
+            //音楽を止める
+            GetComponent<AudioSource>().Stop();
+
             //テキストを表示
             finish.SetActive(true);
 
