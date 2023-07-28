@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TamaGenerator : MonoBehaviour
+
+public class HomingGenerator : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("弾の発射場所")]
@@ -12,7 +13,7 @@ public class TamaGenerator : MonoBehaviour
     [SerializeField]
     [Tooltip("弾の速さ")]
     private float speed = 30f;
-    // Update is called once per frame
+
     public AudioClip fireSE;
     AudioSource aud;
 
@@ -22,16 +23,13 @@ public class TamaGenerator : MonoBehaviour
     }
     void Update()
     {
-        // 左クリックしたかを判定
-        if (Input.GetMouseButtonDown(0))
+        // 右クリックしたかを判定
+        if (Input.GetMouseButtonDown(1))
         {
             // 弾を発射する
             LauncherShot();
         }
     }
-    /// <summary>
-	/// 弾の発射
-	/// </summary>
     private void LauncherShot()
     {
         // 弾を発射する場所を取得
@@ -42,10 +40,9 @@ public class TamaGenerator : MonoBehaviour
         Vector3 direction = newBall.transform.up;
         // 弾の発射方向にnewBallのz方向(ローカル座標)を入れ、弾オブジェクトのrigidbodyに衝撃力を加える
         newBall.GetComponent<Rigidbody>().AddForce(direction * speed, ForceMode.Impulse);
-        // 出現させたボールの名前を"bullet"に変更
-        newBall.name = bullet.name;
+
         this.aud.PlayOneShot(fireSE);
-        // 出現させたボールを1.5秒後に消す
-        Destroy(newBall, 1.5f);
+        // 出現させたミサイルを3秒後に消す
+        Destroy(newBall, 3.0f);
     }
 }
