@@ -20,6 +20,9 @@ public class GameDirector : MonoBehaviour
     //倒した数を入れる変数
     int kill = 0;
 
+    //目標を設定する変数
+    int mokuhyou;
+
     //時間を測る変数
     public static float time = 0;
     public void Gekitui()
@@ -39,12 +42,18 @@ public class GameDirector : MonoBehaviour
         //テキストを探す
         this.killmater = GameObject.Find("Kill");
         this.timer = GameObject.Find("Timer");
+
+        //スタートしたらタイマーをリセット
+        time = 0;
+
+        //倒す目標数を設定
+        mokuhyou = 8;
     }
 
     void Update()
     {
         //倒した数がクリア目標になったら
-        if (kill == 8)
+        if (kill == mokuhyou)
         {
             //音楽を止める
             GetComponent<AudioSource>().Stop();
