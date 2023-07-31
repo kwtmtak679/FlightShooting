@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ClearTime : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //クリアタイムのテキスト
+    GameObject timerText;
+
     void Start()
     {
-        Debug.Log(GameDirector.time);
+        this.timerText = GameObject.Find("ClearTime");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        this.timerText.GetComponent<TextMeshProUGUI>().text =
+        "ClearTime:" + GameDirector.time.ToString("F2");
     }
 }
