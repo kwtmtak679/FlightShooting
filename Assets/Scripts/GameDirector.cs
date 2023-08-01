@@ -54,7 +54,7 @@ public class GameDirector : MonoBehaviour
         time = 0;
 
         //“|‚·–Ú•W”‚ğİ’è
-        mokuhyou = 1;
+        mokuhyou = 5;
     }
 
     void Update()
