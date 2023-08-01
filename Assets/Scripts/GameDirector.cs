@@ -25,6 +25,13 @@ public class GameDirector : MonoBehaviour
 
     //時間を測る変数
     public static float time = 0;
+
+    //ベストタイムを測る変数
+    public static float besttime = 0;
+
+    //プレイ回数を記録
+    public static int play = 0;
+
     public void Gekitui()
     {
         //kill変数をプラス1
@@ -47,7 +54,7 @@ public class GameDirector : MonoBehaviour
         time = 0;
 
         //倒す目標数を設定
-        mokuhyou = 8;
+        mokuhyou = 1;
     }
 
     void Update()
@@ -55,14 +62,29 @@ public class GameDirector : MonoBehaviour
         //倒した数がクリア目標になったら
         if (kill == mokuhyou)
         {
+            //最速タイムか確認する
+            if (play == 0)
+            {
+                besttime = time;
+            }
+            else if(time < besttime)
+            {
+                besttime = time;
+            }
+
             //音楽を止める
             GetComponent<AudioSource>().Stop();
 
             //テキストを表示
             finish.SetActive(true);
 
+            //プレイ回数にプラス１
+            play++;
+
             //３秒後に関数を呼び出す
             Invoke("Clear", 3.0f);
+
+            
         }
         else
         {
